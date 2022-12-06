@@ -22,8 +22,8 @@ function Login() {
     event.preventDefault();
     try {
       await httpRequest.post('/login', { email, senha: password })
-        .then((data) => {          
-          const { token } = data.data;
+        .then(({ data }) => {          
+          const { token } = data;
           LocalstorageManager.setToken(token);
           navigate('/pokemon');
         });

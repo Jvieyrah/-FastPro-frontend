@@ -25,8 +25,8 @@ function Signup() {
         event.preventDefault();
         try {
             await httpRequest.post('/signup', { nome: name, email, telefone: phone, senha: password })
-                .then((data) => {
-                    const { token } = data.data;
+                .then(({ data }) => {
+                    const { token } = data;
                     LocalstorageManager.setToken(token);
                     navigate('/pokemon');
                 });

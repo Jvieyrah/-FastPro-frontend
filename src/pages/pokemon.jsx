@@ -20,8 +20,8 @@ function Pokemon() {
     try {
       await httpRequest.get('/validate', {
         headers: { Authorization: LocalstorageManager.getToken() }, } )
-        .then((response) => {
-          const { nome } = response.data;
+        .then(({ data }) => {
+          const { nome } = data;
           setName(nome);
           setIsLoading(false);
           setisLogged(true);
