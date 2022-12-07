@@ -1,0 +1,3 @@
+export const DefaultResponse = {
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5vbWUiOiJBcHAgQWRtaW4iLCJlbWFpbCI6ImFkbUBhcHAuY29tIn0sImlhdCI6MTY3MDM2MTkwNiwiZXhwIjoxNjcwNDQ4MzA2fQ.YS_L0RnAZ7j_AocACHy7Z7ndGTn3qdzEQP43BlyxBS8"
+};
