@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-export const httpRequest = axios.create({
+const httpRequest = axios.create({
   baseURL: 'https://fastpro-backend-production.up.railway.app',
 });
 
-export const getPokemons = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2',
-});
+const getPokemons = axios.create({
+   baseURL: 'https://pokeapi.co/api/v2',
+ });
+
+export { httpRequest, getPokemons };
