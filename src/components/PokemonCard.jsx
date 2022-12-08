@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getPokemons } from '../axios/config';
+import httpRequest from '../axios/config';
 
 function PokemonCard(props) {
   const [height, setHeight] = useState('');
@@ -8,12 +8,15 @@ function PokemonCard(props) {
   const [img, setImg] = useState('');
   const {
     name,
-    url,
+    id,
   } = props;
 
   const importPokemons = async () => {
-    const endpoint = url.slice(25);
-    await await getPokemons.get(endpoint)
+    await httpRequest.get(`/pokemons/${id}`,
+      {
+        headers: { Authorization: localStorage.getItem('token') },
+      }
+    )
       .then((response) => {
         const { height, weight, } = response.data;
         const { front_shiny } = response.data.sprites;
@@ -38,11 +41,9 @@ function PokemonCard(props) {
   );
 }
 
-
 PokemonCard.propTypes = {
   name: PropTypes.string,
-  url: PropTypes.string,
+  id: PropTypes.string,
 }.isRequired;
-
 
 export default PokemonCard;
